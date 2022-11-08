@@ -1,0 +1,41 @@
+-----------------------------------------------------------------------------------------------------
+--Author				Date			Version
+--Lokesh Gurram		   21-Aug-2022		1.0
+
+
+--Description:
+--------------
+--This script is used to set the environmental variables .
+-----------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------
+--Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+--SPDX-License-Identifier: MIT-0
+-------------------------------------------------------------------
+
+
+OPTIONS (DIRECT=TRUE, ERRORS=50, rows=100000)
+load data into table t_object_sanity
+append
+fields terminated by "`^!"
+TRAILING NULLCOLS
+(
+f_owner,
+f_object_name,
+f_sub_obj_owner,
+f_sub_object_name,
+f_attribute_name,
+f_attribute_type,
+f_position_id,
+f_count,
+f_min_value,
+f_max_value,
+f_increment_by,
+f_cycle_flag,
+f_cache_size,
+f_last_number,
+f_status,
+f_catagory_type,
+f_run_server,
+f_text
+)
