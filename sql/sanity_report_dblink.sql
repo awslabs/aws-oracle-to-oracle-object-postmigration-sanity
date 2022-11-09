@@ -876,26 +876,26 @@ from dba_registry_sqlpatch@&&2 ;
 
 Select        '<Font Size=5><Font Color = "#FF0000"><Font Face ="Amazone BT">'
             ||'<Center>   Oracle DB Parameters : Source Vs Target </Center>'
-            ||'<Center><H2>  Compare DB Parameters in Source and NOT in Target'
+            ||'<Center><H2>  Compare NON DEFAULT DB Parameters in Source and NOT in Target'
             ||'</H2></Center></Font><Font Color = Ff0000>' 
        DB_PARAMETERS
 From dual;
 
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2 WHERE isdefault = 'FALSE'
 minus
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter;
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter WHERE isdefault = 'FALSE';
 
 
 Select        '<Font Size=5><Font Color = "#FF0000"><Font Face ="Amazone BT">'
             ||'<Center>   Oracle DB Parameters : Target Vs Source </Center>'
-            ||'<Center><H2>  Compare DB Parameters in Target and NOT in Source'
+            ||'<Center><H2>  Compare NON DEFAULT DB Parameters in Target and NOT in Source'
             ||'</H2></Center></Font><Font Color = Ff0000>' 
        DB_PARAMETERS
 From dual;
 
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter WHERE isdefault = 'FALSE'
 minus
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2;
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2 WHERE isdefault = 'FALSE';
 
 
 Select        '<Font Size=5><Font Color = "#FF0000"><Font Face ="Amazone BT">'

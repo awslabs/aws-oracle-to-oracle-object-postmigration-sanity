@@ -281,7 +281,7 @@ c.column_id,null,null,null,null,null,null,null,null,'TABLE_COLUMN', p_in_run_ser
 	BEGIN
 		insert into t_object_sanity( f_owner,f_object_name,f_sub_obj_owner,f_sub_object_name,f_attribute_name,f_attribute_type,f_position_id,f_count,f_min_value,f_max_value,f_increment_by,f_cycle_flag,f_cache_size,f_last_number,f_status,f_catagory_type,f_run_server)
 		SELECT inst_id,name,null,DISPLAY_VALUE,DEFAULT_VALUE,value,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,null,'DB_PARAMS',p_in_run_server
-		FROM gv$parameter;
+		FROM gv$parameter WHERE isdefault = 'FALSE';
 		EXCEPTION
 		WHEN OTHERS THEN
 			raise_application_error(-20004,'INSERT into t_object_sanity.DB_PARAMS failed'||sqlerrm);

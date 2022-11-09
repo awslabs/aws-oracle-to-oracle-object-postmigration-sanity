@@ -751,7 +751,7 @@ and f_catagory_type='DB_PARAMS';
 
 Select        '<Font Size=5><Font Color = "#FF0000"><Font Face ="Amazone BT">'
             ||'<Center>   Oracle DB Parameters : Target Vs Source </Center>'
-            ||'<Center><H2>  Compare DB Parameters in Target and NOT in Source'
+            ||'<Center><H2>  Compare DB NON DEFAULT Parameters in Target and NOT in Source'
             ||'</H2></Center></Font><Font Color = Ff0000>' 
        DB_PARAMETERS
 From dual;
