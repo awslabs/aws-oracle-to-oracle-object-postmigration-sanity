@@ -68,7 +68,6 @@ This tool helps in finding the missing object list in an automated and agile env
 - Index Partitions
 - Database Links.
 - CODE lines count from DBA_SOURCE.
-
         When we have object type alteration, then the code may get partially deployed using expdp/impdp.Hence sanity of CODE lines is must.
 - Invalid Objects: Object Name and count.
 
@@ -83,6 +82,34 @@ This tool helps in finding the missing object list in an automated and agile env
 - SQL Profiles.
 
         If source has SQL profiles and not in Target will have SQL performance issues. So SQL Profile comparison is must. 
+
+- Database Roles.
+
+        Roles comparision from DBA_ROLES table.
+
+- List of schemas.
+
+        Number of schema comparision from DBA_USERS table.
+
+- List of Role privileges.
+
+        DBA_ROLE_PRIVS table data comparision.
+
+- List of System level privilege.
+
+        DBA_SYS_PRIVS table data comparision.
+
+- Table Statics.
+
+        Comparing NUM_ROWS for all tables and its statistics percentage.
+
+- LOB objects and its size.
+
+        LOB objects and its size comparision from DBA_LOB and DBA_SEGMENT table.
+
+- User profiles.
+
+        Comparing the user profiles and its limit from DBA_PROFILES
 
 
 ## Scope
