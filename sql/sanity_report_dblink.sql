@@ -876,26 +876,26 @@ from dba_registry_sqlpatch@&&2 ;
 
 Select        '<Font Size=5><Font Color = "#FF0000"><Font Face ="Amazone BT">'
             ||'<Center>   Oracle DB Parameters : Source Vs Target </Center>'
-            ||'<Center><H2>  Compare NON DEFAULT DB Parameters in Source and NOT in Target'
+            ||'<Center><H2>  Compare DB Parameters in Source and NOT in Target'
             ||'</H2></Center></Font><Font Color = Ff0000>' 
        DB_PARAMETERS
 From dual;
 
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2 WHERE isdefault = 'FALSE'
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2
 minus
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter WHERE isdefault = 'FALSE';
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter;
 
 
 Select        '<Font Size=5><Font Color = "#FF0000"><Font Face ="Amazone BT">'
             ||'<Center>   Oracle DB Parameters : Target Vs Source </Center>'
-            ||'<Center><H2>  Compare NON DEFAULT DB Parameters in Target and NOT in Source'
+            ||'<Center><H2>  Compare DB Parameters in Target and NOT in Source'
             ||'</H2></Center></Font><Font Color = Ff0000>' 
        DB_PARAMETERS
 From dual;
 
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter WHERE isdefault = 'FALSE'
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter
 minus
-SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2 WHERE isdefault = 'FALSE';
+SELECT inst_id,name,value,DISPLAY_VALUE,DEFAULT_VALUE FROM gv$parameter@&&2;
 
 
 Select        '<Font Size=5><Font Color = "#FF0000"><Font Face ="Amazone BT">'
@@ -1074,7 +1074,7 @@ s.table_name,
 s.column_name, 
 s.bytes/1024/1024 as "SOURCE_SIZE(MB)",
 t.bytes/1024/1024 as "TARGET_SIZE(MB)", 
-(t.bytes/s.bytes)*100 as "PCT(%)
+(t.bytes/s.bytes)*100 as "PCT(%)"
 from 
 (select l.owner, l.table_name, l.column_name, sum(sg.bytes) bytes from dba_lobs@&&2 l, dba_segments@&&2 sg where l.owner=sg.owner and l.segment_name=sg.segment_name group by l.owner,l.table_name,l.column_name) s,
 (select l.owner, l.table_name, l.column_name, sum(sg.bytes) bytes from dba_lobs l, dba_segments sg where l.owner=sg.owner and l.segment_name=sg.segment_name group by l.owner,l.table_name,l.column_name) t
