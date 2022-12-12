@@ -171,14 +171,14 @@ export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
 ```
 **This is setting of Source DB and Target DB Connection strings**.
 **Enter the username and TNS_STRING.Keep the "$source_db_pwd and $target_db_pwd as same,as these are variables.**
-export SOURCE_CONNSTR="username/`$source_db_pwd`@TNS_STRING"
-export TARGET_CONNSTR="username/`$target_db_pwd`@TNS_STRING"
+export SOURCE_CONNSTR="username/@TNS_STRING"
+export TARGET_CONNSTR="username/@TNS_STRING"
 
 or 
 
 **Enter the username and HOST,PORT and SID .Keep the "$source_db_pwd and $target_db_pwd as same,as these are variables.**
-export SOURCE_CONNSTR="username/`$source_db_pwd`@HOST:PORT/SID"
-export TARGET_CONNSTR="username/`$target_db_pwd`@HOST:PORT/SID"
+export SOURCE_CONNSTR="username/@HOST:PORT/SID"
+export TARGET_CONNSTR="username/@HOST:PORT/SID"
 ```
 
 
